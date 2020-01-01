@@ -1,0 +1,48 @@
+.modal-content {
+  background-color: #a6cfed;
+}
+
+.modal-header {
+  background-color: #6F91A9;
+}
+
+.modal-body {
+  margin-left: 60px;
+  background-color: #a6cfed;
+}
+
+.modal {
+  /*position: top;*/
+  top: -90px;
+}
+
+.modal-footer {
+  margin-left: 60px;
+  background-color: #a6cfed;
+  margin-right: 60px;
+  border-color: #6F91A9;
+}
+
+#city {
+  font-size: x-large;
+}
+
+#temperature {
+  font-size: xx-large;
+}
+
+#summary {
+  font-size: small;
+}
+
+#degree {
+  height: 12px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+}
+
+#icon {
+  height: 60px;
+  margin-top: 20px;
+  margin-right: 80px;
+}

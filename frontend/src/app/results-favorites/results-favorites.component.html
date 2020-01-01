@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="buttonsTab">
+    <button type="submit" id="resultButton" class="btn btn-primary" (click)="showResults()">Results</button>
+    <button type="reset" id="favoritesButton" class="btn btn-dark" (click)="showFavorites()">Favorites</button>
+  </div>
+</div>
+<br>
+
+
+<div [hidden]="!results" id="results">
+  <div class="container">
+    <div class="alert alert-warning" role="alert" *ngIf="this.invalid && this.searched">
+      Invalid Address.
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="alert alert-warning" role="alert" *ngIf="this.noRecords && this.searched">
+     No Records.
+    </div>
+  </div>
+
+
+  <br>
+  <app-results-tabs [noRecords]="noRecords"  [invalid]="invalid" [savedCity]="savedCity" [savedState]="savedState" [currentData]="currentData"></app-results-tabs>
+</div>
+
+<div [hidden]="!favorites">
+  <br>
+  <app-favorites [favoritesData]="favoritesData" [currentData]="currentData"></app-favorites>
+</div>

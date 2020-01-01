@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="alert alert-warning" role="alert" *ngIf="emptyFavorites">
+    No records.
+  </div>
+
+  <table class="table table-striped" *ngIf="!emptyFavorites">
+    <thead id="thead">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">City</th>
+      <th scope="col">State</th>
+      <th scope="col">Favorites</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let eachFavourite of favoritesData">
+      <td>{{eachFavourite.id}}</td>
+      <td><img style="width: 30px;" [src]="eachFavourite.stateSealURL"></td>
+      <td ><a href="#" (click)="showFavoriteDetails(eachFavourite.city, eachFavourite.state)"
+              matTooltip={{eachFavourite.city}}
+              matTooltipPosition='below'>{{eachFavourite.city}}</a></td>
+      <td>{{eachFavourite.state}}</td>
+      <td><button class="btn btn-light" style="color: darkgoldenrod" (click)="deleteRow(eachFavourite.city)"><i class="material-icons">delete</i></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+

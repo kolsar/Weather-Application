@@ -1,0 +1,11 @@
+.twitter-share-button {
+  background-image:  url('https://csci571.com/hw/hw8/Images/Twitter.png');
+  background-repeat: no-repeat;
+  width:40px;
+  height:40px;
+  background-size: 100%;
+}
+
+.resultsProgress {
+  display: block;
+}

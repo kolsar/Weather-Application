@@ -1,0 +1,30 @@
+<div id="chartContainer"></div>
+
+<button id="modalButton" type="button" hidden="true"  class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+</button>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">{{ this.date }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img class="float-right" id="icon" [src]="this.icon" alt="Icon"/>
+        <div id="city">{{this.savedCity}}</div>
+        <div id="temperature">{{this.temperature}}<img id="degree" [src]=this.degreeImage alt="Degree"/>F</div>
+        <div id="summary">{{this.summary}}</div>
+      </div>
+      <div class="modal-footer">
+        Precipitation: {{this.precipitation}}<br>
+        Chance of Rain: {{this.chanceOfRain}} %<br>
+        Wind Speed: {{this.windSpeed}} mph<br>
+        Humidity: {{this.humidity}} %<br>
+        Visibility: {{this.visibility}} miles
+      </div>
+    </div>
+  </div>
+</div>

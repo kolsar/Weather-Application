@@ -1,0 +1,55 @@
+
+<div class="container" id="resultsProgress" *ngIf="!this.noRecords && !this.invalid">
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar"
+         aria-valuenow="50" aria-valuemin="10" aria-valuemax="100" style="width: 50%"></div>
+  </div>
+</div>
+<br>
+<br>
+
+<div class="container" id="results" *ngIf="!this.noRecords && !this.invalid">
+
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active text-dark" data-toggle="tab" href="#current">Current</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" data-toggle="tab" href="#hourly">Hourly</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-dark" data-toggle="tab" href="#weekly">Weekly</a>
+    </li>
+    <input type="button" class="ml-auto twitter-share-button" (click)="tweet()"/>
+    <li class="nav-item">
+      <div (click)="favoriteToggle()" id="star_border_div" [hidden]="this.isStarred">
+        <button class="btn"><i class="material-icons" id="star_border" [hidden]="this.isStarred">star_border</i></button>
+      </div>
+      <div (click)="favoriteToggle()" id="star_div" [hidden]="!this.isStarred">
+        <button class="btn"><i class="material-icons" style="color: gold" id="star"  [hidden]="!this.isStarred">star</i></button>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="container">
+  <div class="tab-content">
+    <div id="current" class="tab-pane active">
+      <div class="container">
+        <app-current-tab [savedCity]="savedCity" [savedState]="savedState" [currentData]="currentData"></app-current-tab>
+      </div>
+    </div>
+    <div id="hourly" class="tab-pane">
+      <div class="container">
+        <app-hourly-tab [currentData]="currentData"></app-hourly-tab>
+      </div>
+    </div>
+    <div id="weekly" class="tab-pane">
+      <div class="container">
+        <app-weekly-tab [currentData]="currentData" [savedCity]="savedCity" ></app-weekly-tab>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

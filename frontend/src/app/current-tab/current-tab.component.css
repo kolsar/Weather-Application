@@ -1,0 +1,16 @@
+#card {
+  background-color: #a6cfed;
+}
+#degree {
+  height:10px;
+  margin-bottom: 25px;
+}
+
+.propertyIcon {
+  height: 30px;
+}
+
+.properties {
+  display: flex;
+  justify-content: space-around;
+}

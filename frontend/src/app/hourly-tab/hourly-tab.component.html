@@ -1,0 +1,22 @@
+<div class="container">
+      <br>
+      <div class="col-sm-6">
+        <select class="custom-select col-sm-9" #t (change)="showBarChart(t.value)">
+          <option value="temperature">Temperature</option>
+          <option value="pressure">Pressure</option>
+          <option value="humidity">Humidity</option>
+          <option value="ozone">Ozone</option>
+          <option value="visibility">Visibility</option>
+          <option value="windSpeed">Wind Speed</option>
+        </select>
+      </div>
+    <div style="display: block">
+          <canvas baseChart id="barChart"
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType">
+          </canvas>
+    </div>
+</div>

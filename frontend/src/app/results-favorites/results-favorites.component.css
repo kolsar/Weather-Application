@@ -1,0 +1,15 @@
+.btn-primary {
+  background-color: #6F91A9;
+  border-color: black;
+  color: white;
+}
+.btn-dark {
+  background-color: white;
+  margin-left: 10px;
+  color: dimgrey;
+}
+.buttonsTab {
+  margin: auto;
+  text-align: center;
+}
+

@@ -1,0 +1,31 @@
+#title {
+  text-align: center;
+  color: white;
+}
+#searchBox {
+  background-color: #6F91A9;
+  margin-top: 30px;
+  box-shadow: 5px 5px 3px darkgrey;
+}
+
+.widthRow {
+  width: 75%;
+}
+
+.widthDropdown {
+  width: 50%;
+}
+
+.move {
+  margin-left: 4rem!important;
+}
+.superScript{
+  color: red;
+}
+.sameLine {
+  vertical-align: middle;
+}
+
+.leftMove {
+  margin-left: 20px;
+}

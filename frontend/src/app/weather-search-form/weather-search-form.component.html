@@ -1,0 +1,78 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<div class="container col-sm-9" >
+  <div class="jumbotron border border-dark rounded" id="searchBox">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+      <h1 id="title"> {{ formTitle }} </h1>
+      <div class="form-group row">
+        <label class="col-sm-1"></label>
+        <label class="col-sm-2 col-form-label text-light">Street<sup class="superScript">*</sup></label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control border-dark" id="inputStreet" formControlName="street" placeholder="Enter Street Name" [attr.disabled]="currentLocationCheckBox.value == true ? true : null">
+          <div *ngIf="(street.invalid || (street.value && 0 == street.value.toString().trim().length)) && street.touched  && !currentLocationCheckBox.value">
+            <div class="superScript" *ngIf="(street.value && 0 == street.value.toString().trim().length) || street.invalid">
+              Please enter a street.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-1"></label>
+        <label class="col-sm-2 col-form-label text-light">City<sup class="superScript">*</sup></label>
+        <div class="col-sm-6">
+          <input type="text" (keyup)="inputUpdate()" matInput class="form-control border-dark" id="inputCity"
+                 formControlName="city" placeholder="Enter City Name"
+                 [attr.disabled]="currentLocationCheckBox.value ? true : null"
+                 [matAutocomplete]="auto">
+          <div *ngIf="city.invalid && city.touched && !currentLocationCheckBox.value">
+            <div class='superScript' *ngIf="city.errors.required">
+              Please enter a city.
+            </div>
+          </div>
+
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option  *ngFor="let city of cityList" [value]="city">
+              <span> {{city}}</span>
+            </mat-option>
+          </mat-autocomplete>
+
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-1"></label>
+        <label class="col-sm-2 col-form-label text-light">State</label>
+        <div class="col-sm-6">
+          <select id="state" class="form-control col-sm-9" formControlName="state" [attr.disabled]="currentLocationCheckBox.value ? true : null">
+            <option *ngFor="let state of statesList.states" [value]="state.Abbreviation">{{ state.State }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label class="col-sm-1 col-form-label"></label>
+        <div class="col-sm-6">
+          <div class="form-check">
+            <input id="currentLocation" type="checkbox" class="form-check-input" formControlName="currentLocationCheckBox">
+            <label class="form-check-label text-light">Current Location</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <label class="col-sm-2 col-form-label"></label>
+          <button type="submit" [disabled]="!((form.valid && state.value != 'default' && state.value != null) || currentLocationCheckBox.value)" class="btn btn-primary border-dark bg-white text-black-50" id="searchWeather"><i class="material-icons sameLine" >search</i>Search</button>
+          <button type="reset" class="btn border-dark bg-white text-black-50 leftMove" (click)="clearPage()"><i class="material-icons sameLine">clear_all</i>Clear</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<form [formGroup]="form" (ngSubmit)="getWeatherData(null)" hidden="true">
+  <button id="remoteTrig" type="submit">
+  </button>
+</form>
+<div id="triggorFav" hidden = "true"></div>
+<app-results-favorites [invalid]="invalid"  [noRecords]="noRecords" [searched]="searched" [savedCity]="savedCity" [savedState]="savedState" [currentData]="currentData"></app-results-favorites>

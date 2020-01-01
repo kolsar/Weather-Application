@@ -1,0 +1,57 @@
+<div class="container col-sm-9">
+  <br>
+  <div class="card border-secondary" id="card">
+    <div class="card-body">
+      <img class="float-right" [src]="this.stateSealURL ? this.stateSealURL : null" alt="State Seal" style="height:125px; margin-top: 20px;"/>
+      <h4 class="card-title font-weight-normal"> {{ savedCity ? savedCity : null }}</h4>
+      <h6 class="card-title text-black-50 font-weight-normal ">{{ this.timezone }}</h6>
+      <h3 class="card-title font-weight-normal">{{ this.temperature }}<img id="degree" [src]=this.degreeImage alt="Degree"/> F</h3>
+      <h4 class="card-title font-weight-normal">{{ this.summary }}</h4>
+      <br>
+      <div class="properties">
+        <figure class="item">
+          <img class="propertyIcon " [src]=this.humidityImage alt='Humidity'
+               mat-raised-button
+               matTooltip="Humidity"
+               aria-label="Humidity"/>
+          <figcaption class='caption'>{{ this.humidity}} </figcaption>
+        </figure>
+        <figure class="item">
+          <img class="propertyIcon" [src]=this.pressureImage alt='Pressure'
+               mat-raised-button
+               matTooltip="Pressure"
+               aria-label="Pressure"/>
+          <figcaption class='caption'>{{ this.pressure}} </figcaption>
+        </figure>
+        <figure class="item">
+          <img class="propertyIcon " [src]=this.windSpeedImage alt='WindSpeed'
+               mat-raised-button
+               matTooltip="WindSpeed"
+               aria-label="WindSpeed"/>
+          <figcaption class='caption'>{{ this.windSpeed}} </figcaption>
+        </figure>
+        <figure class="item">
+          <img class="propertyIcon " [src]=this.visibilityImage alt='Visibility'
+               mat-raised-button
+               matTooltip="Visibility"
+               aria-label="Visibility"/>
+          <figcaption class='caption'>{{ this.visibility}} </figcaption>
+        </figure>
+        <figure class="item">
+          <img class="propertyIcon " [src]=this.cloudCoverImage alt='CloudCover'
+               mat-raised-button
+               matTooltip="CloudCover"
+               aria-label="CloudCover"/>
+          <figcaption class='caption'>{{ this.cloudCover}} </figcaption>
+        </figure>
+        <figure class="item">
+          <img class="propertyIcon " [src]=this.ozoneImage alt='Ozone'
+               mat-raised-button
+               matTooltip="Ozone"
+               aria-label="Ozone"/>
+          <figcaption class='caption'>{{ this.ozone}} </figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</div>
