@@ -9,17 +9,11 @@ app.get('/', (req, res) => {
   res.send('Hello from App Engine!');
 });
 
-// app.use(express.static(__dirname+'../dist/weather-application'));
+darksky_api_key = "";
 
-// /Users/saranyakolanu/Documents/CSCI571/HW8/weather-application/dist/weather-application/index.html
+search_engine_id = '';
 
-// darksky_api_key = "33eacfc4f697f40f2a42b287b2b0eea3";
-
-darksky_api_key = "a9df5a928242de77ace1d5618cbbdb16";
-
-search_engine_id = '008053779700746845173:ak2ybyhw7hq';
-
-google_api_key = 'AIzaSyD5ng50xXsO7T5cAzUnGtNzjZUpiso3rm4';
+google_api_key = '';
 
 
 app.get( '/getCurrentLocationDetails', (req, res) => {
